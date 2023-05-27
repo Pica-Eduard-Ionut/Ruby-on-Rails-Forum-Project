@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   get '/login', to: 'sessions#new' # Use 'new' instead of 'create'
   get '/logout', to: 'sessions#destroy', as: 'logout'
+  post '/posts/:id', to: 'posts#update', as: 'update_post'
+
+
 
   resources :posts do
     resources :comments, only: [:create]

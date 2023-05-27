@@ -49,8 +49,10 @@ body {
 }
 
 .post_display {
+  text-align:left;
   color: var(--post-title-color);
   text-decoration: none;
+  margin-top:0px;
 }
 
 .button {
@@ -139,7 +141,7 @@ p {
 }
 
 .back-img {
-  width: 80px;
+  width: 30px;
   background-color: black;
 }
 
@@ -282,6 +284,8 @@ p {
 
 .postpage{
   background-color:grey;
+  border:none;
+  border-color:none;
 }
 .postpage label, h2, h1{
   color:#ff5e00;
@@ -293,18 +297,24 @@ p {
   border: none;
   border-color: none;
   border-radius: 12px;
+  margin-left:20px;
 }
 .postpage .comment{
   color:red;
 }
-.postpage .submit {
+.postpage #button{
   margin-left: 10px;
   border: none;
   border-color: none;
   background-color: var(--accent-color);
   border-radius: 12px;
-  width: 80px;
-  height: 30px;
-  margin-top:20px;
-  margin-bottom:20px;
+  width: 180px;
+  height: 40px;
+  margin-top:0px;
+  margin-bottom:4px;
+}
+.newcomment{
+  background-color: #925300;
+  padding:10px;
+  border-radius: 16px;
 }
