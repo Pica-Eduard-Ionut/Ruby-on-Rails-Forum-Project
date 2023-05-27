@@ -1,25 +1,41 @@
 <!-- app/views/posts/show.html.erb -->
-<div class="GoBack">
-<%= link_to image_tag('arrow.png', class: 'back-img'), posts_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-1">
+      <div class="GoBack">
+        <%= link_to image_tag('arrow.png', class: 'back-img'), posts_path %>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <h1 class="post_display"><%= @post.title %></h1>
+    </div>
+    <div class="col-md-9"></div>
+
+    <div class="postpage">
+      <p><%= @post.content %></p>
+
+      <h2>Comments</h2>
+      <% @post.comments.each do |comment| %>
+        <p class="comment"><%= comment.content %></p>
+      <% end %>
+
+      <% if logged_in? && current_user == @post.user %>
+  <div class="editpost">
+    <button><%= link_to 'Edit', edit_post_path(@post) %></button>
+  </div>
+<% end %>
+
+
+      <% if logged_in? %>
+        <div class="newcomment">
+          <h2>Create a new comment</h2>
+          <%= form_with model: [@post, @comment], url: post_comments_path(@post) do |form| %>
+            <%= form.label :content %><br>
+            <%= form.text_area :content, cols: '60', rows: '3', class: 'commentfield' %><br>
+            <%= form.submit 'Create Comment', id: 'button' %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
-<h1 class="post_display"> <%= @post.title %></h1>
-
-
-
-
-<p><%= @post.content %></p>
-
-<% if logged_in? %>
-  <h2>Create a new comment</h2>
-  <%= form_with model: [@post, @comment], url: post_comments_path(@post) do |form| %>
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-    <%= form.submit 'Create Comment' %>
-  <% end %>
-<% end %>
-
-<h2>Comments</h2>
-<% @post.comments.each do |comment| %>
-  <p><%= comment.content %></p>
-<% end %>
-
