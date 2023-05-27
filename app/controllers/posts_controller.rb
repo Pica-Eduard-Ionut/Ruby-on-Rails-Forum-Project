@@ -1,77 +1,56 @@
 class PostsController < ApplicationController
-  before_action :set_category, only: [:new, :create]
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :require_login, except: [:index, :show]
 
   def index
-    @category = Category.find(params[:category_id])
-    @posts = @category.posts
+    @posts = Post.all
   end
-  
 
   def show
-    
+    @post = Post.find(params[:id])
     @comment = Comment.new
+    @comments = @post.comments
   end
 
   def new
-    @post = @category.posts.build
+    @post = Post.new
   end
 
   def create
-    @category = Category.find(params[:category_id])
-    @post = @category.posts.new(post_params.except(:user_id))
-  
+    @post = current_user.posts.build(post_params)
     if @post.save
-      redirect_to category_path(@category), notice: 'Post created successfully.'
+      redirect_to @post, notice: 'Post created successfully.'
     else
       render :new
     end
-    def destroy
-      @post = Post.find(params[:id])
-      @category = @post.category
-    
-      if @post.destroy
-        redirect_to category_path(@category), notice: 'Post deleted successfully.'
-      else
-        redirect_to category_path(@category), alert: 'Failed to delete the post.'
-      end
-    end
-    
-    
   end
-  
-  
-  
-  
 
   def edit
+    @post = current_user.posts.find(params[:id])
   end
 
   def update
+    @post = current_user.posts.find(params[:id])
     if @post.update(post_params)
-      redirect_to post_path(@post), notice: 'Post updated successfully.'
+      redirect_to @post, notice: 'Post updated successfully.'
     else
       render :edit
     end
   end
 
   def destroy
+    @post = Post.find(params[:id])
     @post.destroy
-    redirect_to posts_path, notice: 'Post deleted successfully.'
+    redirect_to posts_path, notice: 'Post deleted successfully!'
   end
+  
 
   private
-
-  def set_category
-    @category = Category.find(params[:category_id])
-  end
-
-  def set_post
-    @post = Post.find(params[:id])
-  end
 
   def post_params
     params.require(:post).permit(:title, :content)
   end
-  
+
+  def require_login
+    redirect_to new_session_path unless logged_in?
+  end
 end

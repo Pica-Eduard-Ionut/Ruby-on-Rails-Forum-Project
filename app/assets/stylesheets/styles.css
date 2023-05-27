@@ -1,0 +1,89 @@
+:root {
+  /* Base colors */
+  --primary-color: #222222; /* Main background color */
+  --secondary-color: #333333; /* Secondary background color */
+
+  /* Text colors */
+  --text-color: #FFFFFF; /* White text color */
+  --post-title-color: #FFD700; /* Light orange for post titles */
+  --post-title-hover: #925300; /* Dark orange for post titles */
+
+  /* Accent colors */
+  --accent-color: #FFA500; /* Orange accent color */
+  --accent-hover-color: #FF8C00; /* Orange accent color on hover */
+
+  /* Additional colors */
+  --success-color: #00FF00; /* Success color */
+  --error-color: #FF0000; /* Error color */
+}
+
+body {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+.post-title a {
+  margin-left: 10px;
+  color: var(--post-title-color);
+  text-decoration:none;
+}
+.post-title a:hover {
+  color: var(--post-title-hover);
+  text-decoration:underline;
+}
+.post_display{
+  color: var(--post-title-color);
+  text-decoration:none;
+}
+
+.button {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+}
+
+.button:hover {
+  background-color: var(--accent-hover-color);
+}
+
+.buttons button{
+  width: 80px;
+  height: 30px;
+  background-color: #FF8C00;
+  border:none;
+  border-radius: 25px;
+  margin-right: 25px;
+}
+
+.username {
+  color:greenyellow;
+  display:inline-block;
+}
+.username:hover {
+  color: green;
+}
+.post_button {
+  
+  border-color:none;
+  border:none;
+  border-radius:15px;
+  width: 700px;
+  background-color: grey;
+}
+.post_button span, p{
+  margin-left: 10px;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+.button_post{
+  border:none;
+  border-radius: 10px;
+  background-color: grey;
+}
+
+.GoBack {
+  font-size:40px;
+}
+.GoBack a{
+  text-decoration: none;
+  color: var(--accent-color);
+}

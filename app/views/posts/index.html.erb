@@ -1,18 +1,35 @@
+<!-- app/views/posts/index.html.erb -->
 <h1>Posts</h1>
+<% @posts.reverse_each do |post| %>
+ <%# <%= link_to post.title, post_path(post), class: 'btn btn-danger' %>
+  <div class="post_button">
+    <h2 class="post-title"><%= link_to post.title, post_path(post) %></h2>
+    <span>Posted by: <div class="username"><%= post.user.name %></div></span>
+    <p><%= truncate(post.content, length: 150) %></p>
+  </div>
+  <div class="buttons">
+  <% if current_user && current_user == post.user %>
+    <button><%= link_to 'Edit', edit_post_path(post) %></button>
+    <%= button_to 'Delete', post_path(post), method: :delete, data: { confirm: 'Are you sure?', class: "delete-button", style: 'color: brown;'} %>
+  <% end %>
+  </div>
+  <hr>
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.content %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% if logged_in? %>
+  <%# <h2>Create a new post</h2>
+  <div class="post_form">
+  <%= form_with model: @post, url: posts_path do |form| %>
+    <%#<%= form.label :title %>
+    <%#<%= form.text_field :title %>
+
+    <%#<%= form.label :content %>
+    <%#<%= form.text_area :content %>
+
+    <%#<%= form.submit 'Create Post' %>
+  <%#<% end %>
+  <%#</div> %>
+<% else %>
+  <p>Please login to create a new post.</p>
+  <%= link_to 'Login', new_session_path %>
+<% end %>

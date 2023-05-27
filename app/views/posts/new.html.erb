@@ -1,15 +1,11 @@
-<%= form_with(model: [@category, @post], url: category_posts_path(@category)) do |form| %>
+<h1>New Post</h1>
+
+<%= form_with model: @post, url: posts_path do |form| %>
   <%= form.label :title %>
   <%= form.text_field :title %>
-  <% if @post.errors.has_key?(:title) %>
-    <p class="error"><%= @post.errors[:title].first %></p>
-  <% end %>
 
   <%= form.label :content %>
   <%= form.text_area :content %>
-  <% if @post.errors.has_key?(:content) %>
-    <p class="error"><%= @post.errors[:content].first %></p>
-  <% end %>
 
-  <%= form.submit 'Create Post', class: 'btn' %>
+  <%= form.submit %>
 <% end %>

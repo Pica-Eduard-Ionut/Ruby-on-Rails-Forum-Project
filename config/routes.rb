@@ -1,18 +1,12 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root 'posts#index'
+  resources :users, only: [:new, :create]
+  resources :posts
+  resources :sessions, only: [:new, :create, :destroy]
+  get '/login', to: 'sessions#new' # Use 'new' instead of 'create'
+  get '/logout', to: 'sessions#destroy', as: 'logout'
 
-  # Defines the root path route ("/")
-   root "categories#index"
-  resources :categories do
-    resources :posts, only: [:new, :create]
-  end
-  delete 'posts/:id', to: 'posts#destroy', as: 'post'
-
-
-  
-  
   resources :posts do
-    resources :comments
+    resources :comments, only: [:create]
   end
-  
 end

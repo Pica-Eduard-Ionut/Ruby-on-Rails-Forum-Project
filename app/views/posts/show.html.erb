@@ -1,24 +1,23 @@
-<h1><%= @post.title %></h1>
+<!-- app/views/posts/show.html.erb -->
+<div class="GoBack"><%= link_to '<---', posts_path %></div>
+<h1 class="post_display"> <%= @post.title %></h1>
+
+
+
+
 <p><%= @post.content %></p>
 
-<h2>Comments</h2>
-<ul>
-  <% @post.comments.each do |comment| %>
-    <li><%= comment.content %></li>
+<% if logged_in? %>
+  <h2>Create a new comment</h2>
+  <%= form_with model: [@post, @comment], url: post_comments_path(@post) do |form| %>
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+    <%= form.submit 'Create Comment' %>
   <% end %>
-</ul>
-<br>
-<%= link_to 'Edit', edit_post_path(@post), class: 'btn', style: 'color:green;'  %>
-<%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn', style: 'color:red;' %>
-<%= link_to 'Back', posts_path, class: 'btn', style: 'color:red;' %>
-<br>
-<%= form_with(model: Comment.new, url: post_comments_path(@post)) do |form| %>
-  <%= form.label :"Add a new comment"%>
-  <%= form.text_area :content %>
+<% end %>
 
-  <%= form.submit 'Add Comment', class: 'btn' %>
-  <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn', style: 'color:red;' %>
-
-
+<h2>Comments</h2>
+<% @post.comments.each do |comment| %>
+  <p><%= comment.content %></p>
 <% end %>
 
