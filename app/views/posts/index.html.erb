@@ -2,18 +2,30 @@
 <h1>Posts</h1>
 <% @posts.reverse_each do |post| %>
  <%# <%= link_to post.title, post_path(post), class: 'btn btn-danger' %>
+ <div class="row">
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-7">
   <div class="post_button">
     <h2 class="post-title"><%= link_to post.title, post_path(post) %></h2>
     <span>Posted by: <div class="username"><%= post.user.name %></div></span>
     <p><%= truncate(post.content, length: 150) %></p>
   </div>
-  <div class="buttons">
+
+  </div>
+  <div class="col-md-4">
+    <div class="container">
+        <div class="buttons">
   <% if current_user && current_user == post.user %>
     <button><%= link_to 'Edit', edit_post_path(post) %></button>
     <%= button_to 'Delete', post_path(post), method: :delete, data: { confirm: 'Are you sure?', class: "delete-button", style: 'color: brown;'} %>
   <% end %>
   </div>
-  <hr>
+    </div>
+  </div>
+
+  </div>
+  
 <% end %>
 
 <% if logged_in? %>
