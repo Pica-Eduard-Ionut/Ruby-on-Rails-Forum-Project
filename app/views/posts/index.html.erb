@@ -1,47 +1,48 @@
 <!-- app/views/posts/index.html.erb -->
-<h1>Posts</h1>
-<% @posts.reverse_each do |post| %>
- <%# <%= link_to post.title, post_path(post), class: 'btn btn-danger' %>
- <div class="row">
-  <div class="col-md-1">
-  </div>
-  <div class="col-md-7">
-  <div class="post_button">
-    <h2 class="post-title"><%= link_to post.title, post_path(post) %></h2>
-    <span>Posted by: <div class="username"><%= post.user.name %></div></span>
-    <p><%= truncate(post.content, length: 150) %></p>
-  </div>
 
-  </div>
-  <div class="col-md-4">
-    <div class="container">
-        <div class="buttons">
-  <% if current_user && current_user == post.user %>
-    <button><%= link_to 'Edit', edit_post_path(post) %></button>
-    <%= button_to 'Delete', post_path(post), method: :delete, data: { confirm: 'Are you sure?', class: "delete-button", style: 'color: brown;'} %>
-  <% end %>
-  </div>
-    </div>
-  </div>
-
-  </div>
-  
-<% end %>
-
-<% if logged_in? %>
+<%# <% if logged_in? %>
   <%# <h2>Create a new post</h2>
   <div class="post_form">
   <%= form_with model: @post, url: posts_path do |form| %>
-    <%#<%= form.label :title %>
-    <%#<%= form.text_field :title %>
+    <%# <%= form.label :title %>
+    <%# <%= form.text_field :title %>
 
-    <%#<%= form.label :content %>
-    <%#<%= form.text_area :content %>
+    <%# <%= form.label :content %>
+    <%# <%= form.text_area :content %>
 
-    <%#<%= form.submit 'Create Post' %>
-  <%#<% end %>
-  <%#</div> %>
-<% else %>
-  <p>Please login to create a new post.</p>
+    <%# <%= form.submit 'Create Post' %>
+  <%# </div> %>
+<%# <% else %>
+<%# <div class="login">
+  Please login to create a new post.     
   <%= link_to 'Login', new_session_path %>
+<%# </div>
+<%# end %>
+<div class="create">
+  <%= link_to 'Create Post', new_post_path %>
+</div>
+
+<h1>Posts</h1>
+
+<% @posts.reverse_each do |post| %>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-7">
+      <div class="post_button">
+        <h2 class="post-title"><%= link_to post.title, post_path(post) %></h2>
+        <span>Posted by: <div class="username"><%= post.user.name %></div></span>
+        <p><%= truncate(post.content, length: 150) %></p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="container">
+        <div class="buttons">
+          <% if current_user && current_user == post.user %>
+            <%= button_to 'Edit', edit_post_path(post), class: 'btn btn-danger' %>
+            <%= button_to 'Delete', post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>

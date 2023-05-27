@@ -1,14 +1,20 @@
 <div class="newform">
   <div class="container">
+    <div class="row">
+      New Post
+    </div>
+
+    <div class="row">
       <%= form_with model: @post, url: posts_path do |form| %>
         <%= form.label :title %><br>
-          <%= form.text_area :title, cols: '80' %><br>
+          <%= form.text_field :title %><br>
 
             <%= form.label :content %><br>
-              <%= form.text_area :content, cols: '80', rows: '8' %><br><br>
+              <%= form.text_area :content %><br>
 
-                <%= form.submit 'Create Post', id: 'submit_button' %><br>
+                <%= form.submit %><br>
                   <% end %>
+    </div>
 
   </div>
 </div>

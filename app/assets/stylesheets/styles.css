@@ -1,20 +1,35 @@
 :root {
   /* Base colors */
-  --primary-color: #222222; /* Main background color */
-  --secondary-color: #333333; /* Secondary background color */
+  --primary-color: #222222;
+  /* Main background color */
+  --secondary-color: #333333;
+  /* Secondary background color */
 
   /* Text colors */
-  --text-color: #FFFFFF; /* White text color */
-  --post-title-color: #FFD700; /* Light orange for post titles */
-  --post-title-hover: #925300; /* Dark orange for post titles */
+  --text-color: #FFFFFF;
+  /* White text color */
+  --post-title-color: #FFD700;
+  /* Light orange for post titles */
+  --post-title-hover: #925300;
+  /* Dark orange for post titles */
 
   /* Accent colors */
-  --accent-color: #FFA500; /* Orange accent color */
-  --accent-hover-color: #FF8C00; /* Orange accent color on hover */
+  --accent-color: #FFA500;
+  /* Orange accent color */
+  --accent-hover-color: #ff5e00;
+  /* Orange accent color on hover */
 
   /* Additional colors */
-  --success-color: #00FF00; /* Success color */
-  --error-color: #FF0000; /* Error color */
+  --success-color: #00FF00;
+  /* Success color */
+  --error-color: #FF0000;
+  /* Error color */
+}
+
+h1 {
+  margin-left: 100px;
+  font-size: 50px;
+  color: var(--accent-hover-color);
 }
 
 body {
@@ -25,15 +40,17 @@ body {
 .post-title a {
   margin-left: 10px;
   color: var(--post-title-color);
-  text-decoration:none;
+  text-decoration: none;
 }
+
 .post-title a:hover {
   color: var(--post-title-hover);
-  text-decoration:underline;
+  text-decoration: underline;
 }
-.post_display{
+
+.post_display {
   color: var(--post-title-color);
-  text-decoration:none;
+  text-decoration: none;
 }
 
 .button {
@@ -45,68 +62,194 @@ body {
   background-color: var(--accent-hover-color);
 }
 
-.buttons button{
+.buttons button {
   width: 80px;
   height: 30px;
-  background-color: #FF8C00;
-  border:none;
+  background-color: #863100;
+  border: none;
   border-radius: 25px;
   margin-right: 25px;
 }
 
 .username {
-  color:greenyellow;
-  display:inline-block;
+  color: greenyellow;
+  display: inline-block;
 }
+
 .username:hover {
   color: green;
 }
+
 .post_button {
-  border-color:none;
-  border:none;
-  border-radius:15px;
+  border-color: none;
+  border: none;
+  border-radius: 15px;
   width: 700px;
-  height:130px;
+  height: 140px;
   background-color: grey;
   margin-bottom: 30px;
 }
-.post_button span, p{
-  margin-left: 10px;
-  margin-top:10px;
-  margin-bottom:10px;
+
+.post_button h2 {
+  padding: 6px;
 }
-.button_post{
-  border:none;
+
+.post_button span,
+p {
+  margin-left: 10px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.button_post {
+  border: none;
   border-radius: 10px;
   background-color: grey;
 }
 
 .GoBack {
-  font-size:40px;
+  font-size: 40px;
   background-color: var(--primary-color);
 }
-.GoBack a{
+
+.GoBack a {
   text-decoration: none;
   color: var(--accent-color);
 }
-.buttons{
-  float:left;
-  margin-left:50px;
+
+.buttons {
+  float: left;
+  margin-left: 50px;
 }
+
 .buttons button {
   color: var(--post-title-color);
   font-size: 14px;
   margin-top: 18px;
-  margin-bottom:18px;
+  margin-bottom: 18px;
 }
+
 .buttons button a {
   text-decoration: none;
-  color: red;
+  color: var(--post-title-color);
 }
-.image-link{
+
+.image-link {
   background-color: transparent;
 }
-.back-img{
-  width:80px;
+
+.back-img {
+  width: 80px;
   background-color: black;
+}
+
+.header .nav_bar li {
+  display: inline-block;
+  list-style-type: none;
+  text-align: center;
+  margin-left: 100px;
+}
+
+.header .nav_bar li a {
+  text-decoration: none;
+  color: var(--post-title-color);
+  font-size: 30px;
+}
+
+.header {
+  text-align: center;
+  margin: 20px;
+  margin-left: 80px;
+}
+
+.login a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: var(--post-title-color);
+  font-size: 20px;
+}
+
+.create {
+  margin-left: 100px;
+}
+
+.create a {
+  margin-left: 20px;
+  text-decoration: none;
+  font-size: 40px;
+  color: var(--post-title-color);
+}
+
+.newform {
+  text-align: left;
+}
+
+.newform label {
+  font-size: 34px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.newform button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.newform textarea {
+  font-size: 18px;
+  resize: none;
+  background-color: grey;
+  border: none;
+  border-color: none;
+  border-radius: 12px;
+}
+
+.newform textarea:focus {
+  background: lightgrey;
+}
+
+.newform #submit_button {
+  border: none;
+  border-color: none;
+  background-color: var(--accent-color);
+  border-radius: 12px;
+  width: 150px;
+  height: 40px;
+}
+
+.newform #submit_button:hover {
+  background-color: var(--accent-hover-color);
+}
+
+.newform .password .email {
+  font-size: 18px;
+  resize: none;
+  background-color: grey;
+  border: none;
+  border-color: none;
+  border-radius: 12px;
+}
+
+.registerform {
+  text-align: left;
+}
+
+.register_button {
+  margin-left: 50px;
+  border: none;
+  border-color: none;
+  background-color: var(--accent-color);
+  border-radius: 12px;
+  width: 120px;
+  height: 30px;
+}
+
+.login_button {
+  margin-left: 10px;
+  border: none;
+  border-color: none;
+  background-color: var(--accent-color);
+  border-radius: 12px;
+  width: 80px;
+  height: 30px;
 }
