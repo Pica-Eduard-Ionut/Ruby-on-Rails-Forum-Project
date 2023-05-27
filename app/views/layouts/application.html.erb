@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Forum</title>
+  <%= stylesheet_link_tag 'style', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<!-- app/views/layouts/application.html.erb -->
+<% flash.each do |key, value| %>
+  <div class="flash <%= key %>">
+    <%= value %>
+  </div>
+<% end %>
+<br><br>
+  <nav class="navbar">
+    <div class="container">
+      <%= link_to 'Categories', categories_path %>
+      <%= link_to 'Posts', posts_path %>
+    </div>
+  </nav>
+
+  <div class="container">
+    <%= yield %>
+  </div>
+</body>
+</html>
