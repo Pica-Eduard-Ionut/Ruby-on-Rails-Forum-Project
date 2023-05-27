@@ -2,15 +2,17 @@ class CommentsController < ApplicationController
   before_action :require_login
 
   def create
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.build(comment_params)
-    @comment.user = current_user
-    if @comment.save
-      redirect_to root_path, notice: 'Comment created successfully!'
-    else
-      render 'posts/show'
-    end
+  @post = Post.find(params[:post_id])
+  @comment = @post.comments.build(comment_params)
+  @comment.user = current_user
+  
+  if @comment.save
+    redirect_back(fallback_location: @post, notice: 'Comment created successfully.')
+  else
+    # Handle error case
   end
+end
+
 
   private
 

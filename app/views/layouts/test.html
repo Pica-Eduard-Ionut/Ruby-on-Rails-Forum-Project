@@ -1,20 +1,8 @@
-<div class="newform">
-  <div class="container">
-    <div class="row">
-      New Post
-    </div>
-
-    <div class="row">
-      <%= form_with model: @post, url: posts_path do |form| %>
-        <%= form.label :title %><br>
-          <%= form.text_field :title %><br>
-
-            <%= form.label :content %><br>
-              <%= form.text_area :content %><br>
-
-                <%= form.submit %><br>
-                  <% end %>
-    </div>
-
-  </div>
+<div class="comment">
+  <p id="user">
+    <%= comment.user.name %>
+  </p>
+  <p id="content">
+    <%= comment.content %>
+  </p>
 </div>

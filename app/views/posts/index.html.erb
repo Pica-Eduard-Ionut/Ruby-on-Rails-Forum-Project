@@ -26,7 +26,13 @@
 
 <% @posts.reverse_each do |post| %>
   <div class="row">
-    <div class="col-md-1">
+    <div class="col-md-1" id="votes">
+    <ul>
+    <li></li><li></li>
+      <li>upvote</li>
+      <li>downv</li>
+      <li></li><li></li>
+    </ul>
     </div>
     <div class="col-md-7">
       <div class="post_button">

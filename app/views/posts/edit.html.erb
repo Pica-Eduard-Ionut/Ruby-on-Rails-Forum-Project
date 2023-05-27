@@ -1,11 +1,16 @@
-<h1>Edit Post</h1>
+<div class="newform">
+  <div class="container">
+<h2>Edit Post</h2>
 
 <%= form_with model: @post, url: post_path(@post), method: :patch do |form| %>
-  <%= form.label :title %>
-  <%= form.text_field :title %>
+  <%= form.label :title %><br>
+  <%= form.text_area :title, cols: '80' %><br>
 
-  <%= form.label :content %>
-  <%= form.text_area :content %>
+  <%= form.label :content %><br>
+  <%= form.text_area :content, cols: '80', rows: '7' %><br><br>
 
-  <%= form.submit 'Update Post' %>
+  <%= form.submit 'Update Post', id: 'submit_button'  %>
+  <button id="submit_button"><%= link_to "Go Back", posts_path %></button>
 <% end %>
+</div>
+</div>

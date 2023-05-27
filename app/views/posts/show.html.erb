@@ -1,28 +1,35 @@
 <!-- app/views/posts/show.html.erb -->
 <div class="container">
   <div class="row">
-    <div class="col-md-1">
+    <div class="col-md-2">
       <div class="GoBack">
-        <%= link_to image_tag('arrow.png', class: 'back-img'), posts_path %>
+        <button id="submit_button"><%= link_to "Go Back", posts_path %></button>
       </div>
     </div>
-    <div class="col-md-2">
-      <h1 class="post_display"><%= @post.title %></h1>
+    <div class="col-md-10" id="post_display">
+      <h2><%= @post.title %></h2>
     </div>
-    <div class="col-md-9"></div>
+   
 
     <div class="postpage">
+      <div id="p_content">
       <p><%= @post.content %></p>
+      </div>
 
       <h2>Comments</h2>
       <% @post.comments.each do |comment| %>
-        <p class="comment"><%= comment.content %></p>
+        <div class="comment">
+  <p id="user">
+    <%= comment.user.name + " :" %>
+  </p>
+  <p id="content">
+    <%= comment.content %>
+  </p>
+</div>
       <% end %>
 
       <% if logged_in? && current_user == @post.user %>
-  <div class="editpost">
-    <button><%= link_to 'Edit', edit_post_path(@post) %></button>
-  </div>
+  
 <% end %>
 
 
@@ -32,7 +39,7 @@
           <%= form_with model: [@post, @comment], url: post_comments_path(@post) do |form| %>
             <%= form.label :content %><br>
             <%= form.text_area :content, cols: '60', rows: '3', class: 'commentfield' %><br>
-            <%= form.submit 'Create Comment', id: 'button' %>
+            <%= form.submit 'Create Comment', id: 'button', type: 'submit' %>
           <% end %>
         </div>
       <% end %>

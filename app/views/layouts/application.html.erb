@@ -6,6 +6,7 @@
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag 'bootstrap', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag 'styles', media: 'all', 'data-turbolinks-track': 'reload' %>
+  
 </head>
 <body>
   <div class="container">
@@ -14,12 +15,12 @@
         <div class="col-md-2"></div>
         <div class="col-md-8">
           <ul class="nav_bar">
-            <li><%= link_to 'Home', root_path %></li>
+            <li id="navbutton"><%= link_to 'Home', root_path %></li>
             <% unless !logged_in? %>
-              <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+              <li id="navbutton"><%= link_to 'Logout', logout_path, method: :delete %></li>
             <% else %>
-              <li><%= link_to 'Login', login_path %></li> 
-              <li><%= link_to 'Register', new_user_path %></li>
+              <li id="navbutton"><%= link_to 'Login', login_path %></li> 
+              <li id="navbutton"><%= link_to 'Register', new_user_path %></li>
             <% end %>
           </ul>
         </div>
