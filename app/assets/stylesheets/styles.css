@@ -253,3 +253,58 @@ p {
   width: 80px;
   height: 30px;
 }
+.registerform label, #name{
+  margin-top:10px;
+}
+.registerform label{
+    font-size: 34px;
+    margin-top: 20px;
+    margin-bottom:10px;
+}
+.registerform #name{
+  font-size: 18px;
+  resize: none;
+  background-color: grey;
+  border: none;
+  border-color: none;
+  border-radius: 12px;
+  
+}
+.registerform .register_button{
+  margin-left: 75px;
+}
+.registerform h1{
+  font-size: 40px;
+}
+.registerform label{
+  font-size:20px;
+}
+
+.postpage{
+  background-color:grey;
+}
+.postpage label, h2, h1{
+  color:#ff5e00;
+}
+.postpage textarea{
+  font-size: 18px;
+  resize: none;
+  background-color: lightgray;
+  border: none;
+  border-color: none;
+  border-radius: 12px;
+}
+.postpage .comment{
+  color:red;
+}
+.postpage .submit {
+  margin-left: 10px;
+  border: none;
+  border-color: none;
+  background-color: var(--accent-color);
+  border-radius: 12px;
+  width: 80px;
+  height: 30px;
+  margin-top:20px;
+  margin-bottom:20px;
+}

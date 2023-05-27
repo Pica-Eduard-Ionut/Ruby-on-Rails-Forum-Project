@@ -6,20 +6,21 @@
 
 
 
-
+<div class="postpage">
 <p><%= @post.content %></p>
-
-<% if logged_in? %>
-  <h2>Create a new comment</h2>
-  <%= form_with model: [@post, @comment], url: post_comments_path(@post) do |form| %>
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-    <%= form.submit 'Create Comment' %>
-  <% end %>
-<% end %>
 
 <h2>Comments</h2>
 <% @post.comments.each do |comment| %>
-  <p><%= comment.content %></p>
+  <p class="comment"><%= comment.content %></p>
 <% end %>
+<% if logged_in? %>
+  <h2>Create a new comment</h2>
+  <%= form_with model: [@post, @comment], url: post_comments_path(@post) do |form| %>
+    <%= form.label :content %><br>
+    <%= form.text_area :content, class: 'commentfield' %><br>
+    <%= form.submit 'Create Comment', class: 'button' %>
+  <% end %>
+<% end %>
+</div>
+
 

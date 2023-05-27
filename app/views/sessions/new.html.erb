@@ -6,10 +6,10 @@
 
 <%= form_with url: sessions_path do |form| %>
   <%= form.label :email %><br>
-  <%= form.email_field :email %><br>
+  <%= form.email_field :email, id: 'name' %><br>
 
   <%= form.label :password %><br>
-  <%= form.password_field :password %><br><br>
+  <%= form.password_field :password, id: 'name' %><br><br>
 
   <%= form.submit 'Login', class: 'login_button' %>
   <%= button_to 'Register', new_user_path, method: :get, class: 'register_button' %>
