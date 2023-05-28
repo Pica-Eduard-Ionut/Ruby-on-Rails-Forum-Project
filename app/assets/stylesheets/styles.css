@@ -5,7 +5,10 @@
   --secondary-color: #333333;
   /* Secondary background color */
   --third-color: #5e5252;
+  /* Third background color */
   --fourth-color: #8f7d7d;
+  /* Fourth background color */
+
   /* Text colors */
   --text-color: #FFFFFF;
   /* White text color */
@@ -25,9 +28,6 @@
   /* Success color */
   --error-color: #FF0000;
   /* Error color */
-
-
-  
 }
 
 h1 {
@@ -88,8 +88,8 @@ body {
   border: none;
   border-radius: 25px;
   margin-right: 25px;
+  margin-left:30px;
 }
-
 .username {
   text-align:right;
   color: greenyellow;
@@ -101,6 +101,7 @@ body {
 }
 
 .post_button {
+  padding-left:10px;
   border-color: none;
   border: none;
   border-radius: 15px;
@@ -108,6 +109,9 @@ body {
   height: 140px;
   background-color: grey;
   margin-bottom: 30px;
+  margin-left:30px;
+  display: inline-block;
+    height: fit-content;
 }
 
 .post_button h2 {
@@ -139,7 +143,7 @@ p {
 
 .buttons {
   float: left;
-  margin-left: 50px;
+  margin-left: 70px;
 }
 
 .buttons button {
@@ -422,4 +426,31 @@ p {
 #navbutton a:hover{
   color:var(--accent-hover-color);
   text-decoration:underline;
+}
+#votes li{
+  list-style: none;
+  text-align: left;
+  margin-right:10px;
+  margin-top:8px;
+}
+
+.buttons2 button{
+  font-size: 14px;
+  width:80px;
+  height:40px;
+  background-color: var(--post-title-hover);
+  color: var(--post-title-color);
+  border:none;
+  border-color:none;
+  border-radius:12px;
+}
+#counter {
+  margin-left:16px;
+}
+#dates{
+  margin-top:0px;
+  margin-right:10px;
+}
+.truncate {
+  word-wrap: break-word;
 }

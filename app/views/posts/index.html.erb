@@ -1,7 +1,7 @@
 <!-- app/views/posts/index.html.erb -->
 
 <%# <% if logged_in? %>
-<%#   <h2>Create a new post</h2>
+  <%# <h2>Create a new post</h2>
   <div class="post_form">
     <%= form_with model: @post, url: posts_path do |form| %>
       <%# <%= form.label :title %>
@@ -12,45 +12,147 @@
 
       <%# <%= form.submit 'Create Post' %>
     <%# </div> %>
-<%# <% else %>
-<%#   <div class="login">
-      Please login to create a new post.
-      <%= link_to 'Login', new_session_path %>
-<%#   </div>
-<%# end %>
-<div class="create">
-  <%= link_to 'Create Post', new_post_path %>
-</div>
+  <%# <% else %>
+  <%#   <div class="login">
+    Please login to create a new post.
+    <%= link_to 'Login', new_session_path %>
+  <%#   </div>
+  <%# end %>
+  <div class="create">
+    <%= link_to 'Create Post', new_post_path %>
+  </div>
 
+  
 <h1>Posts</h1>
+  <% @posts.reverse_each do |post| %>
+    <div class="row">
+      <div class="col-md-1" id="votes">
+        <ul class="buttons2">
+        <li></li><li></li>
+        <li>
+          <%= button_to 'Upvote', upvote_post_path(post), method: :post, remote: true %>
+        </li>
+        <li>
+          <div id="counter_<%= post.id %>">
+            <%= post.vote_difference %>
+          </div>
+        </li>
+        <li>
+          <%= button_to 'Downvote', downvote_post_path(post), method: :post, remote: true %>
+        </li>
+        <li></li><li></li>
+      </ul>
 
-<% @posts.reverse_each do |post| %>
-  <div class="row">
-    <div class="col-md-1" id="votes">
-    <ul>
-    <li></li><li></li>
-      <li>upvote</li>
-      <li>downv</li>
-      <li></li><li></li>
-    </ul>
-    </div>
-    <div class="col-md-7">
-      <div class="post_button">
-        <h2 class="post-title"><%= link_to post.title, post_path(post) %></h2>
-        <span>Posted by: <div class="username"><%= post.user.name %></div></span>
-        <p><%= truncate(post.content, length: 150) %></p>
+  <script>
+  // Function to handle upvote button click
+  function upvotePost(postId) {
+    const counter = document.getElementById(`counter_${postId}`);
+    const comparison = document.getElementById(`comparison_${postId}`);
+    const vote = localStorage.getItem(`post_${postId}_vote`);
+    if (vote !== 'upvote') {
+      if (vote === 'downvote') {
+        decreaseCounter(counter);
+      }
+      increaseCounter(counter);
+      localStorage.setItem(`post_${postId}_vote`, 'upvote');
+      updateComparisonSymbol(counter, comparison);
+    }
+  }
+
+  // Function to handle downvote button click
+  function downvotePost(postId) {
+    const counter = document.getElementById(`counter_${postId}`);
+    const comparison = document.getElementById(`comparison_${postId}`);
+    const vote = localStorage.getItem(`post_${postId}_vote`);
+    if (vote !== 'downvote') {
+      if (vote === 'upvote') {
+        decreaseCounter(counter);
+      }
+      increaseCounter(counter);
+      localStorage.setItem(`post_${postId}_vote`, 'downvote');
+      updateComparisonSymbol(counter, comparison);
+    }
+  }
+
+  // Function to increase the counter value
+  function increaseCounter(counter) {
+    const currentCount = parseInt(counter.innerHTML.trim());
+    const newCount = isNaN(currentCount) ? 1 : currentCount + 1;
+    counter.innerHTML = newCount;
+  }
+
+  // Function to decrease the counter value
+  function decreaseCounter(counter) {
+    const currentCount = parseInt(counter.innerHTML.trim());
+    const newCount = isNaN(currentCount) ? 0 : currentCount - 1;
+    counter.innerHTML = newCount;
+  }
+
+  // Function to update the comparison symbol
+  function updateComparisonSymbol(counter, comparison) {
+    const currentCount = parseInt(counter.innerHTML.trim());
+    const upSymbol = '&#x2191;'; // Up arrow symbol
+    const downSymbol = '&#x2193;'; // Down arrow symbol
+
+    const otherCountElements = document.querySelectorAll('.counter');
+    otherCountElements.forEach(function(element) {
+      if (element !== counter) {
+        const otherCount = parseInt(element.innerHTML.trim());
+        if (currentCount > otherCount) {
+          element.nextElementSibling.innerHTML = upSymbol;
+        } else if (currentCount < otherCount) {
+          element.nextElementSibling.innerHTML = downSymbol;
+        } else {
+          element.nextElementSibling.innerHTML = '';
+        }
+      }
+    });
+  }
+</script>
+
+
+
+
+
+
       </div>
-    </div>
-    <div class="col-md-4">
-      <div class="container">
-        <div class="buttons">
-          <% if current_user && current_user == post.user %>
-            <button><%= link_to 'Edit', edit_post_path(post) %></button>
-
-            <%= button_to 'Delete', post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-          <% end %>
+      <div class="col-md-7">
+        <div class="container">
+          <div class="post_button">
+            <h2 class="post-title">
+              <%= link_to post.title, post_path(post) %>
+            </h2>
+            <div class="row">
+              <div class="col-md-4" id="username">
+                Posted by:
+                <div class="username">
+                  <%= post.user.name %>
+                </div>
+              </div>
+              <div class="col-md-4">
+                Created: <%= post.created_at.strftime('%d/%m/%y %H:%M') %>
+              </div>
+              <div class="col-md-4">
+                Updated: <%= post.updated_at.strftime('%d/%m/%y %H:%M') %>
+              </div>
+            </div>
+            <div class="container">
+              <p class="truncate">
+                <%= truncate(post.content, length: 150) %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="container">
+          <div class="buttons">
+            <% if current_user && current_user == post.user %>
+              <button><%= link_to 'Edit', edit_post_path(post) %></button>
+              <%= button_to 'Delete', post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>

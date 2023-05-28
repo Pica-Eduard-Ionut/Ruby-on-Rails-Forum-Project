@@ -1,8 +1,14 @@
 class PostsController < ApplicationController
   before_action :require_login, except: [:index, :show]
+  
 
   def index
     @posts = Post.all
+    if params[:order] == 'created_at'
+      @posts = Post.order(created_at: :desc)
+    else
+      @posts = Post.order(updated_at: :desc)
+    end
   end
 
   def show
@@ -42,7 +48,22 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to posts_path, notice: 'Post deleted successfully!'
   end
-  
+
+  def upvote
+    @post = Post.find(params[:id])
+    unless current_user.upvotes.exists?(post_id: @post.id)
+      current_user.upvotes.create(post_id: @post.id)
+    end
+    redirect_to posts_path
+  end
+
+  def downvote
+    @post = Post.find(params[:id])
+    unless current_user.downvotes.exists?(post_id: @post.id)
+      current_user.downvotes.create(post_id: @post.id)
+    end
+    redirect_to posts_path
+  end
 
   private
 
