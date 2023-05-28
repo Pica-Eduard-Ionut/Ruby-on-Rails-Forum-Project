@@ -1,12 +1,7 @@
 <!-- app/views/posts/show.html.erb -->
 <div class="container">
   <div class="row">
-    <div class="col-md-2">
-      <div class="GoBack">
-        <button id="submit_button"><%= link_to "Go Back", posts_path %></button>
-      </div>
-    </div>
-    <div class="col-md-10" id="post_display">
+    <div class="col-md-12" id="post_display">
       <h2><%= @post.title %></h2>
     </div>
    
@@ -15,9 +10,27 @@
       <div id="p_content">
       <p><%= @post.content %></p>
       </div>
-      <%= pluralize(@post.votes.sum(:vote), "vote") %>
-      <%= button_to 'Like', upvote_post_path(@post), method: :post %>
-      <%= button_to 'DISLike', downvote_post_path(@post), method: :post %>
+     
+     <ul class="buttons3">
+  <li>
+    <%= button_to 'Upvote' , upvote_post_path(@post), method: :post, id: ("voted" if current_user&.votes&.exists?(post_id: @post.id, vote: 1)) %>
+  </li>
+  <li>
+  <% if @post.votes.sum(:vote) > 0 %>
+           <%= '^' %>
+           <% elsif @post.votes.sum(:vote) < 0 %>
+           <%= 'v' %>
+          <% end %>
+          <%= @post.votes.sum(:vote).abs %>
+  </li>
+  <li>
+    <%= button_to 'Downvote' , downvote_post_path(@post), method: :post, id: ("voted" if current_user&.votes&.exists?(post_id: @post.id, vote: -1)) %>
+  </li>
+  <li id="poster_name">
+        <%= 'by' + ' ' + @post.user.name %>
+     </li>
+</ul>
+
 
 
 
@@ -34,10 +47,6 @@
   </p>
 </div>
       <% end %>
-
-      <% if logged_in? && current_user == @post.user %>
-  
-<% end %>
 
 
       <% if logged_in? %>

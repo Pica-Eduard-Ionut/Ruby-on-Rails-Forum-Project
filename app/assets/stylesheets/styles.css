@@ -53,27 +53,35 @@ body {
 }
 
 #post_display {
-  border:none;
-  border-color:none;
-  border-radius:12px;
+  border: none;
+  border-color: none;
+  border-radius: 12px;
   background-color: var(--post-title-hover);
-  text-align:left;
+  text-align: left;
   color: var(--post-title-color);
   text-decoration: none;
-  margin-top:0px;
+  margin-top: 0px;
+  height: fit-content;
 }
-#p_content{
+
+#post_display h2 {
+  margin-top: 5px;
+}
+
+#p_content {
   padding: 12px 6px 12px 6px;
-  border:none;
-  border-color:none;
-  border-radius:12px;
+  border: none;
+  border-color: none;
+  border-radius: 12px;
   background-color: var(--third-color);
   word-wrap: break-word;
 }
-#p_content p{
-  color:var(--post-title-color);
-    word-wrap: break-word;
+
+#p_content p {
+  color: var(--post-title-color);
+  word-wrap: break-word;
 }
+
 .button {
   background-color: var(--accent-color);
   color: var(--text-color);
@@ -90,10 +98,11 @@ body {
   border: none;
   border-radius: 25px;
   margin-right: 25px;
-  margin-left:30px;
+  margin-left: 30px;
 }
+
 .username {
-  text-align:right;
+  text-align: right;
   color: greenyellow;
   display: inline-block;
 }
@@ -103,7 +112,7 @@ body {
 }
 
 .post_button {
-  padding-left:10px;
+  padding-left: 10px;
   border-color: none;
   border: none;
   border-radius: 15px;
@@ -111,9 +120,9 @@ body {
   height: 140px;
   background-color: grey;
   margin-bottom: 30px;
-  margin-left:30px;
+  margin-left: 30px;
   display: inline-block;
-    height: fit-content;
+  height: fit-content;
 }
 
 .post_button h2 {
@@ -203,22 +212,26 @@ p {
   font-size: 40px;
   color: var(--post-title-color);
 }
-#link_btn2{
-  margin-top:10px;
-  margin-left:100px;
+
+#link_btn2 {
+  margin-top: 10px;
+  margin-left: 100px;
   width: 180px;
-  height:45px;
-  border:none;
-  border-color:none;
+  height: 45px;
+  border: none;
+  border-color: none;
   border-radius: 20px;
   background-color: var(--post-title-hover);
 }
-#link_btn2:hover{
+
+#link_btn2:hover {
   background-color: #863100;
 }
-#link_btn2 a{
-  font-size:32px;
+
+#link_btn2 a {
+  font-size: 32px;
 }
+
 #create {
   text-decoration: none;
   font-size: 40px;
@@ -251,9 +264,10 @@ p {
 
 .newform textarea:focus {
   background: lightgrey;
-  color:#ff5e00
+  color: #ff5e00
 }
-.newcomment textarea{
+
+.newcomment textarea {
   font-size: 18px;
   resize: none;
   background-color: grey;
@@ -261,10 +275,12 @@ p {
   border-color: none;
   border-radius: 12px;
 }
+
 .newcomment textarea:focus {
   background: lightgrey;
-  color:#ff5e00
+  color: #ff5e00
 }
+
 .newform #submit_button {
   border: none;
   border-color: none;
@@ -272,7 +288,7 @@ p {
   border-radius: 12px;
   width: 150px;
   height: 40px;
-  margin-right:40px;
+  margin-right: 40px;
 }
 
 
@@ -283,11 +299,13 @@ p {
   border-radius: 12px;
   width: 150px;
   height: 40px;
-  margin-right:40px;
+  margin-right: 40px;
 }
-.GoBack #submit_button a{
+
+.GoBack #submit_button a {
   color: var(--post-title-hover);
 }
+
 .newform #submit_button:hover {
   background-color: var(--accent-hover-color);
 }
@@ -324,62 +342,75 @@ p {
   width: 80px;
   height: 30px;
 }
-.registerform label, #name{
-  margin-top:10px;
+
+.registerform label,
+#name {
+  margin-top: 10px;
 }
-.registerform label{
-    font-size: 34px;
-    margin-top: 20px;
-    margin-bottom:10px;
+
+.registerform label {
+  font-size: 34px;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
-.registerform #name{
+
+.registerform #name {
   font-size: 18px;
   resize: none;
   background-color: grey;
   border: none;
   border-color: none;
   border-radius: 12px;
-  
-}
-.registerform .register_button{
-  margin-left: 75px;
-}
-.registerform h1{
-  font-size: 40px;
-}
-.registerform label{
-  font-size:20px;
+
 }
 
-.postpage{
-  background-color:var(--secondary-color);
-  border:none;
-  border-color:none;
-  border-radius:20px;
-  padding:20px;
+.registerform .register_button {
+  margin-left: 75px;
 }
-.postpage label, h2, h1{
-  color:var(--accent-color);
+
+.registerform h1 {
+  font-size: 40px;
 }
-.postpage textarea{
+
+.registerform label {
+  font-size: 20px;
+}
+
+.postpage {
+  background-color: var(--secondary-color);
+  border: none;
+  border-color: none;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.postpage label,
+h2,
+h1 {
+  color: var(--accent-color);
+}
+
+.postpage textarea {
   font-size: 18px;
   resize: none;
-  background-color: lightgray;
+  background-color: var(--fourth-color);
   border: none;
   border-color: none;
   border-radius: 12px;
-  margin-left:10px;
-  margin-bottom:10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
 }
-.postpage .comment{
-  padding:5px;
-  margin-left:10px;
-  margin-bottom:10px;
-  color:var(--accent-color);
+
+.postpage .comment {
+  padding: 5px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  color: var(--accent-color);
   background-color: var(--third-color);
-  border-radius:20px;
+  border-radius: 20px;
 }
-.postpage #button{
+
+.postpage #button {
   margin-left: 10px;
   border: none;
   border-color: none;
@@ -387,105 +418,149 @@ p {
   border-radius: 12px;
   width: 180px;
   height: 40px;
-  margin-top:0px;
-  margin-bottom:4px;
+  margin-top: 0px;
+  margin-bottom: 4px;
 }
-.postpage .comment #user{
+
+.postpage .comment #user {
   color: var(--post-title-color)
 }
-.postpage .comment #user:hover{
+
+.postpage .comment #user:hover {
   color: var(--post-title-hover)
 }
-.postpage .comment #content{
-  padding:5px;
-  border-radius:10px;
+
+.postpage .comment #content {
+  padding: 5px;
+  border-radius: 10px;
 }
-.postpage #post_content{
+
+.postpage #post_content {
   background-color: var(--secondary-color);
 }
 
 
 
 
-.newcomment{
+.newcomment {
   background-color: #925300;
-  padding:10px;
+  padding: 10px;
   border-radius: 16px;
 }
-.newcomment label{
-  margin-left:10px;
-  margin-bottom:10px;
+
+.newcomment label {
+  margin-left: 10px;
+  margin-bottom: 10px;
 }
 
-.post_button span{
-  margin-top:2px;
+.post_button span {
+  margin-top: 2px;
 }
-.post_button p{
+
+.post_button p {
   color: var(--accent-color)
 }
-#submit_button a{
+
+#submit_button a {
   color: black;
   text-decoration: none;
 }
+
 .left {
   text-align: left;
-  float:left;
+  float: left;
 }
+
 .right {
   text-align: right;
-  float:right;
+  float: right;
 }
+
 .right-m {
   text-align: right;
-  float:right;
-  margin-right:150px;
+  float: right;
+  margin-right: 150px;
 }
+
 #navbutton {
   border: none;
   border-color: none;
-  background-color: var(--accent-color);
+  background-color: var(--post-title-hover);
   border-radius: 25px;
   width: 160px;
-  margin-left:10px;
-  margin-right:10px;
-  color: var()
+  margin-left: 10px;
+  margin-right: 10px;
+  color: var(--post-title-color)
 }
-#navbutton a{
-  color:var(--post-title-hover)
+
+#navbutton a {
+  color: var(--post-title-color)
 }
-#navbutton a:hover{
-  color:var(--accent-hover-color);
-  text-decoration:underline;
+
+#navbutton a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
 }
-#votes li{
+
+#votes li {
   list-style: none;
   text-align: left;
-  margin-right:10px;
-  margin-top:8px;
+  margin-right: 10px;
+  margin-top: 8px;
 }
 
-.buttons2 button{
+.buttons2 button {
   font-size: 14px;
-  width:80px;
-  height:40px;
+  width: 80px;
+  height: 40px;
   background-color: var(--post-title-hover);
   color: var(--post-title-color);
-  border:none;
-  border-color:none;
-  border-radius:12px;
+  border: none;
+  border-color: none;
+  border-radius: 12px;
 }
-.buttons2 button:hover{
-    background-color:#5e5252;
-    color: var(--post-title-hover);
 
+.buttons2 button:hover {
+  background-color: #5e5252;
+  color: var(--post-title-hover);
 }
+
+.buttons3 {
+  display: inline-block;
+}
+
+.buttons3 li {
+  list-style-type: none;
+  display: inline-block;
+  margin-left: 8px;
+  margin-top: 10px;
+}
+
+.buttons3 li button {
+  font-size: 14px;
+  width: 80px;
+  height: 30px;
+  background-color: var(--post-title-hover);
+  color: var(--post-title-color);
+  border: none;
+  border-color: none;
+  border-radius: 12px;
+}
+
+.buttons3 button:hover {
+  background-color: #5e5252;
+  color: var(--post-title-hover);
+}
+
 #counter {
-  margin-left:16px;
+  margin-left: 16px;
 }
-#dates{
-  margin-top:0px;
-  margin-right:10px;
+
+#dates {
+  margin-top: 0px;
+  margin-right: 10px;
 }
+
 .truncate {
   word-wrap: break-word;
 }
@@ -493,35 +568,51 @@ p {
 #mainbar {
   text-align: center;
 }
-#mainbar ul li{
+
+#mainbar ul li {
   list-style-type: none;
-  display:inline-block;
+  display: inline-block;
 }
+
 #link_btn {
   background-color: var(--post-title-hover);
-  margin-top:10px;
-  border:none;
-  border-color:none;
-  border-radius:40px;
-  width:80px;
-  height:40px;
-  margin-left: 16px;
+  margin-top: 10px;
+  border: none;
+  border-color: none;
+  border-radius: 40px;
+  width: 70px;
+  height: 40px;
+  margin-right: 20px;
 }
-#link_btn a{
+
+#link_btn a {
   color: var(--post-title-color);
   text-decoration: none;
 }
-#link_btn:hover{
-  background-color:#5e5252;
+
+#link_btn:hover {
+  background-color: #5e5252;
 }
-#link_btn a:hover{
+
+#link_btn a:hover {
   color: var(--post-title-hover);
 }
 
-.votecount{
-  margin-left:6px;
+.votecount {
+  margin-left: 6px;
   text-align: center;
 }
+
 #voted {
   background-color: red;
+}
+
+.topbar {
+  list-style-type: none;
+  display: inline-block;
+}
+
+.topbar li {
+  list-style-type: none;
+  display: inline-block;
 }

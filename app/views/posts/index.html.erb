@@ -71,7 +71,7 @@ function myFunction() {
       <ul class="buttons2">
       <li></li><li></li>
       <li>
-        <%= button_to 'Upvote', indexupvote_post_path(post), method: :post, id: ("voted" if current_user&.votes.exists?(post_id: post.id, vote: 1)) %>
+      <%= button_to 'Upvote', indexupvote_post_path(post), method: :post, id: ("voted" if current_user.present? && current_user.votes.exists?(post_id: post.id, vote: 1)) %>
       </li>
       <li>
         <div id="counter_<%= post.id %>" class="votecount">
@@ -84,7 +84,7 @@ function myFunction() {
         </div>
       </li>
       <li>
-        <%= button_to 'Downvote', indexdownvote_post_path(post), method: :post, id: ("voted" if current_user&.votes.exists?(post_id: post.id, vote: -1)) %>
+        <%= button_to 'Downvote', indexdownvote_post_path(post), method: :post, id: ("voted" if current_user&.votes&.exists?(post_id: post.id, vote: -1)) %>
       </li>
       <li></li><li></li>
     </ul>

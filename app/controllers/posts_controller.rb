@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      redirect_to @post, notice: 'Post created successfully.'
+      redirect_to upvote_post_path(@post), notice: 'Post created successfully.'
     else
       render :new
     end
