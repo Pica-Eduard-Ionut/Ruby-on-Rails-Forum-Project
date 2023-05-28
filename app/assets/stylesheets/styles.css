@@ -448,6 +448,11 @@ p {
   border-color:none;
   border-radius:12px;
 }
+.buttons2 button:hover{
+    background-color:#5e5252;
+    color: var(--post-title-hover);
+
+}
 #counter {
   margin-left:16px;
 }
@@ -479,4 +484,10 @@ p {
 #link_btn a{
   color: var(--post-title-color);
   text-decoration: none;
+}
+#link_btn:hover{
+  background-color:#5e5252;
+}
+#link_btn a:hover{
+  color: var(--post-title-hover);
 }
