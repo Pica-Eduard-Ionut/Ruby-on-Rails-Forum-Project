@@ -3,12 +3,8 @@ class PostsController < ApplicationController
   
 
   def index
-    @posts = Post.all
-    if params[:order] == 'created_at'
-      @posts = Post.order(created_at: :desc)
-    else
-      @posts = Post.order(updated_at: :desc)
-    end
+    #to order all posts in the order of creation from newest created to oldest
+    @posts = Post.order(created_at: :asc)
   end
 
   def show
