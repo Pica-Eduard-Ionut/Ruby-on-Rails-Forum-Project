@@ -519,6 +519,9 @@ p {
 }
 
 .votecount{
-  margin-left:8px;
+  margin-left:6px;
   text-align: center;
+}
+#voted {
+  background-color: red;
 }

@@ -58,10 +58,31 @@ class PostsController < ApplicationController
     else
       vote.update(vote: 1)
     end
-    redirect_to posts_path
+    redirect_to @post
   end
   
   def downvote
+    @post = Post.find(params[:id])
+    vote = current_user.votes.find_or_initialize_by(post: @post)
+    if vote.vote == -1
+      vote.destroy
+    else
+      vote.update(vote: -1)
+    end
+    redirect_to @post
+  end
+  def indexupvote
+    @post = Post.find(params[:id])
+    vote = current_user.votes.find_or_initialize_by(post: @post)
+    if vote.vote == 1
+      vote.destroy
+    else
+      vote.update(vote: 1)
+    end
+    redirect_to posts_path
+  end
+  
+  def indexdownvote
     @post = Post.find(params[:id])
     vote = current_user.votes.find_or_initialize_by(post: @post)
     if vote.vote == -1
