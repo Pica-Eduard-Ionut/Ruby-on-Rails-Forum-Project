@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new' # Use 'new' instead of 'create'
   get '/logout', to: 'sessions#destroy', as: 'logout'
   post '/posts/:id', to: 'posts#update', as: 'update_post'
-
+  get '/updated', to: 'posts#index_updated'
 
 
   resources :posts do

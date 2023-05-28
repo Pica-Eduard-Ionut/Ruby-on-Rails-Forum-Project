@@ -68,9 +68,11 @@ body {
   border-color:none;
   border-radius:12px;
   background-color: var(--third-color);
+  word-wrap: break-word;
 }
 #p_content p{
   color:var(--post-title-color);
+    word-wrap: break-word;
 }
 .button {
   background-color: var(--accent-color);

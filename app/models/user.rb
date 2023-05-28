@@ -5,8 +5,5 @@ class User < ApplicationRecord
   
     validates :name, presence: true
     validates :email, presence: true, uniqueness: true
-
-    has_many :upvotes, -> { distinct }, through: :posts
-    has_many :downvotes, -> { distinct }, through: :posts
   end
   
