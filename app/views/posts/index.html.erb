@@ -30,90 +30,18 @@
         <ul class="buttons2">
         <li></li><li></li>
         <li>
-          <%= button_to 'Upvote', upvote_post_path(post), method: :post, remote: true %>
+          <button>Upvote</button>
         </li>
         <li>
           <div id="counter_<%= post.id %>">
-            <%= post.vote_difference %>
+            counter
           </div>
         </li>
         <li>
-          <%= button_to 'Downvote', downvote_post_path(post), method: :post, remote: true %>
+          <button>Downvote</button>
         </li>
         <li></li><li></li>
       </ul>
-
-  <script>
-  // Function to handle upvote button click
-  function upvotePost(postId) {
-    const counter = document.getElementById(`counter_${postId}`);
-    const comparison = document.getElementById(`comparison_${postId}`);
-    const vote = localStorage.getItem(`post_${postId}_vote`);
-    if (vote !== 'upvote') {
-      if (vote === 'downvote') {
-        decreaseCounter(counter);
-      }
-      increaseCounter(counter);
-      localStorage.setItem(`post_${postId}_vote`, 'upvote');
-      updateComparisonSymbol(counter, comparison);
-    }
-  }
-
-  // Function to handle downvote button click
-  function downvotePost(postId) {
-    const counter = document.getElementById(`counter_${postId}`);
-    const comparison = document.getElementById(`comparison_${postId}`);
-    const vote = localStorage.getItem(`post_${postId}_vote`);
-    if (vote !== 'downvote') {
-      if (vote === 'upvote') {
-        decreaseCounter(counter);
-      }
-      increaseCounter(counter);
-      localStorage.setItem(`post_${postId}_vote`, 'downvote');
-      updateComparisonSymbol(counter, comparison);
-    }
-  }
-
-  // Function to increase the counter value
-  function increaseCounter(counter) {
-    const currentCount = parseInt(counter.innerHTML.trim());
-    const newCount = isNaN(currentCount) ? 1 : currentCount + 1;
-    counter.innerHTML = newCount;
-  }
-
-  // Function to decrease the counter value
-  function decreaseCounter(counter) {
-    const currentCount = parseInt(counter.innerHTML.trim());
-    const newCount = isNaN(currentCount) ? 0 : currentCount - 1;
-    counter.innerHTML = newCount;
-  }
-
-  // Function to update the comparison symbol
-  function updateComparisonSymbol(counter, comparison) {
-    const currentCount = parseInt(counter.innerHTML.trim());
-    const upSymbol = '&#x2191;'; // Up arrow symbol
-    const downSymbol = '&#x2193;'; // Down arrow symbol
-
-    const otherCountElements = document.querySelectorAll('.counter');
-    otherCountElements.forEach(function(element) {
-      if (element !== counter) {
-        const otherCount = parseInt(element.innerHTML.trim());
-        if (currentCount > otherCount) {
-          element.nextElementSibling.innerHTML = upSymbol;
-        } else if (currentCount < otherCount) {
-          element.nextElementSibling.innerHTML = downSymbol;
-        } else {
-          element.nextElementSibling.innerHTML = '';
-        }
-      }
-    });
-  }
-</script>
-
-
-
-
-
 
       </div>
       <div class="col-md-7">
