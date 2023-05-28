@@ -52,19 +52,27 @@ class PostsController < ApplicationController
 
   def upvote
     @post = Post.find(params[:id])
-    unless current_user.upvotes.exists?(post_id: @post.id)
-      current_user.upvotes.create(post_id: @post.id)
+    vote = current_user.votes.find_or_initialize_by(post: @post)
+    if vote.vote == 1
+      vote.destroy
+    else
+      vote.update(vote: 1)
     end
     redirect_to posts_path
   end
-
+  
   def downvote
     @post = Post.find(params[:id])
-    unless current_user.downvotes.exists?(post_id: @post.id)
-      current_user.downvotes.create(post_id: @post.id)
+    vote = current_user.votes.find_or_initialize_by(post: @post)
+    if vote.vote == -1
+      vote.destroy
+    else
+      vote.update(vote: -1)
     end
     redirect_to posts_path
   end
+  
+  
 
   private
 

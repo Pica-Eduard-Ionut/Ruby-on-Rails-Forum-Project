@@ -15,6 +15,13 @@
       <div id="p_content">
       <p><%= @post.content %></p>
       </div>
+      <%= pluralize(@post.votes.sum(:vote), "vote") %>
+      <%= button_to 'Like', upvote_post_path(@post), method: :post %>
+      <%= button_to 'DISLike', downvote_post_path(@post), method: :post %>
+
+
+
+
 
       <h2>Comments</h2>
       <% @post.comments.each do |comment| %>

@@ -517,3 +517,8 @@ p {
 #link_btn a:hover{
   color: var(--post-title-hover);
 }
+
+.votecount{
+  margin-left:8px;
+  text-align: center;
+}
