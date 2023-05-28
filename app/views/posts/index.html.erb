@@ -19,6 +19,24 @@
   <%= link_to 'Login', new_session_path %>
 <%#   </div>
 <%# end %>
+
+
+<script>
+function myFunction() {
+  var result = confirm("Are you sure?");
+
+    if (result) {
+      // Additional conditions or logic here
+      return true;  // Allow form submission
+    } else {
+      return false; // Cancel form submission
+    }
+}
+</script>
+
+
+
+
 <div class="row">
   <div class="create">
       <%= link_to 'Create Post', new_post_path %>
@@ -33,7 +51,7 @@
 <ul>
     <li>
         <button id="link_btn">
-            <%= link_to 'Updated' , '/updated' %>
+            <%= link_to 'Updated' , '/updated', :confirm =>"are you sure?" %>
         </button>
     </li>
     <li>
@@ -98,7 +116,7 @@
         <div class="buttons">
           <% if current_user && current_user == post.user %>
             <button><%= link_to 'Edit', edit_post_path(post) %></button>
-            <%= button_to 'Delete', post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+            <%= button_to 'Delete', post_path(post), onclick: 'return myFunction()', method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
           <% end %>
         </div>
       </div>
