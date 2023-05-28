@@ -203,6 +203,27 @@ p {
   font-size: 40px;
   color: var(--post-title-color);
 }
+#link_btn2{
+  margin-top:10px;
+  margin-left:100px;
+  width: 180px;
+  height:45px;
+  border:none;
+  border-color:none;
+  border-radius: 20px;
+  background-color: var(--post-title-hover);
+}
+#link_btn2:hover{
+  background-color: #863100;
+}
+#link_btn2 a{
+  font-size:32px;
+}
+#create {
+  text-decoration: none;
+  font-size: 40px;
+  color: var(--post-title-color);
+}
 
 .newform {
   text-align: left;
@@ -263,6 +284,9 @@ p {
   width: 150px;
   height: 40px;
   margin-right:40px;
+}
+.GoBack #submit_button a{
+  color: var(--post-title-hover);
 }
 .newform #submit_button:hover {
   background-color: var(--accent-hover-color);

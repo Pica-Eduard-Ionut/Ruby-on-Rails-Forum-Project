@@ -39,12 +39,14 @@ function myFunction() {
 
 <div class="row">
   <div class="create">
-      <%= link_to 'Create Post', new_post_path %>
+  <h1>Posts</h1>
     </div>
 </div>
 <div class="row" id="mainbar">
     <div class="col-md-4">
-        <h1>Posts</h1>
+    <button id="link_btn2">
+             <%= link_to 'Create Post', new_post_path, id: 'create' %>
+        </button>
     </div>
     <div class="col-md-8">
         
