@@ -6,6 +6,11 @@ class PostsController < ApplicationController
     #to order all posts in the order of creation from newest created to oldest
     @posts = Post.order(created_at: :asc)
   end
+  def index_updated
+    @posts = Post.order(updated_at: :asc)
+    #have to render something or i get an error but it displays properly
+    render :index
+  end
 
   def show
     @post = Post.find(params[:id])

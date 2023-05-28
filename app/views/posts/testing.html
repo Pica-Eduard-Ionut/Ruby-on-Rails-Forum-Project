@@ -1,4 +1,19 @@
-<div class="container">
-    <div class="row">Created: <%= post.created_at %></div>
-    <div class="row">Updated: <%= post.updated_at %></div>
-</div>
+<button>
+    <%= link_to 'Updated' , '/updated' %>
+</button>
+<button>
+    <%= link_to 'Newest' , posts_path %>
+</button>
+
+<ul>
+    <li>
+        <button>
+            <%= link_to 'Updated' , '/updated' %>
+        </button>
+    </li>
+    <li>
+        <button>
+            <%= link_to 'Newest' , posts_path %>
+        </button>
+    </li>
+</ul>

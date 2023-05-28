@@ -197,7 +197,6 @@ p {
 }
 
 .create a {
-  margin-left: 20px;
   text-decoration: none;
   font-size: 40px;
   color: var(--post-title-color);
@@ -410,6 +409,11 @@ p {
   text-align: right;
   float:right;
 }
+.right-m {
+  text-align: right;
+  float:right;
+  margin-right:150px;
+}
 #navbutton {
   border: none;
   border-color: none;
@@ -453,4 +457,26 @@ p {
 }
 .truncate {
   word-wrap: break-word;
+}
+
+#mainbar {
+  text-align: center;
+}
+#mainbar ul li{
+  list-style-type: none;
+  display:inline-block;
+}
+#link_btn {
+  background-color: var(--post-title-hover);
+  margin-top:10px;
+  border:none;
+  border-color:none;
+  border-radius:40px;
+  width:80px;
+  height:40px;
+  margin-left: 16px;
+}
+#link_btn a{
+  color: var(--post-title-color);
+  text-decoration: none;
 }
