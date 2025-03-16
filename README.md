@@ -34,7 +34,6 @@ Setup the database:
 ```sh
   rails db:create
   rails db:migrate
-  rails db:seed # If you have seed data
 ```
 
 ## Running the Application
