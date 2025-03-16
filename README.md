@@ -30,7 +30,7 @@ Rails (check version with rails -v)
 
 Bundler (gem install bundler if not installed)
 
-A database system (SQLite, PostgreSQL, or MySQL); I used SQLite while making this project.
+A database system (SQLite, PostgreSQL, or MySQL)
 
 Setup
 
@@ -61,13 +61,17 @@ Project Structure
 
 app/views/layouts/application.html.erb: Main layout with navigation bar.
 
-app/views/categories/index.html.erb: Displays posts.
+app/views/categories/index.html.erb: Displays categories.
+
+app/views/categories/show.html.erb: Shows posts in a category.
 
 app/views/posts/show.html.erb: Displays individual posts with comments and voting options.
 
 Usage
 
-Home Page: Lists available posts.
+Home Page: Lists available categories.
+
+Category Page: Shows posts within the selected category.
 
 Post Page: Displays the post, its comments, and upvote/downvote buttons.
 
