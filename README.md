@@ -9,6 +9,20 @@ A simple Reddit-like forum built with Ruby on Rails, where users can create cate
 - Commenting on posts
 - Upvoting and downvoting posts
 
+### Screenshots
+---
+#### Forum Posts page
+![forum-posting.png](./img/forum-postings.png) 
+---
+#### Create Post
+![create-post.png](./img/create-post.png) 
+---
+#### Post page
+![post-ui.png](./img/post-ui.png)
+---
+#### Registration page
+![create-post.png](./img/register.png) 
+---
 ## Installation
 
 ### Prerequisites
